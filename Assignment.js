@@ -94,18 +94,28 @@ function sum(...args) {
 console.log(sum(1,2,3,4,5));
 
 // 12. Write a function that returns a promise which resolves after 3 seconds with a 'Success' message.
-const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-async function delaySuccess() {
-    try {
-        await wait(3000); 
-        return "Success";
-    } catch (error) {
-        return "Error";   
-    }
+function delayedSuccess() {
+    const users = [
+        { name: "Ahmed", age: 25 },
+        { name: "Sara", age: 22 },
+        { name: "Ali", age: 30 }
+    ]
+  return new Promise((resolve , reject) => {
+    setTimeout(() => { 
+        if (users){
+            resolve("Success");
+        } else {
+            reject('not found');
+        }
+    }, 3000)
+    })
 }
-delaySuccess().then(console.log);
-
+delayedSuccess("Ahmed").then((message) => {
+    console.log(message);
+}).catch((error) => {
+    console.log(error);
+});
+        
 // 13. Write a function to find the largest number in an array.
 function findMax() {
   let max = 0; 
