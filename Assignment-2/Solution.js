@@ -2,7 +2,7 @@
 // • Output Example:{File:“/home/user/project/index.js”, Dir:“/home/user/project”}
 const path = require('node:path');
 let filePath = '/home/user/project/index.js';
-let result1 = { File: path.basename(filePath), Dir: path.dirname(filePath) };
+let result1 = { File: filePath, Dir: path.dirname(filePath) };
 console.log(result1);
 // 2. Write a function that takes a file path and returns its file name. (0.5 Grade)
 // • Input Example: /user/files/report.pdf
